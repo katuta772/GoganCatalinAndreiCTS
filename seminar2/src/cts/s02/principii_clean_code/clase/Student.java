@@ -5,8 +5,15 @@ import java.util.Arrays;
 public class Student extends Aplicant {
 	protected String facultate;
 	protected int an_studii;
-	
-	
+	private static int sumaFinantare;
+
+	public static int getSumaFinantare() {
+		return sumaFinantare;
+	}
+
+	public static void setSumaFinantare(int sumaFinantare) {
+		Student.sumaFinantare = sumaFinantare;
+	}
 	public String getFacultate() {
 		return facultate;
 	}
@@ -25,7 +32,7 @@ public class Student extends Aplicant {
 		super();
 		
 	}
-	
+
 	public Student(String nume, String prenume, int varsta, int punctaj, int nr_proiecte, String[] denumireProiect, String facultate, int an_studii) {
 		super(nume,prenume,varsta,punctaj,nr_proiecte,denumireProiect);
 		this.facultate = facultate;
@@ -33,14 +40,12 @@ public class Student extends Aplicant {
 	}
 	@Override
 	public String toString() {
-		return "Student: Nume=" + nume + ", Prenume=" + prenume + ", Varsta=" + varsta + ", Punctaj=" + punctaj + ", Nr_proiecte=" + nrProiecte +  ", DenumireProiect=" + Arrays.toString(denumireProiect) + "Facultate=" + facultate + ", An_studii=" + an_studii ;
+		return "Student: Nume=" + nume + ", Prenume=" + prenume + ", Varsta=" + varsta + ", Punctaj=" + punctajObtinut + ", Nr_proiecte=" + nrProiecte +  ", DenumireProiect=" + Arrays.toString(denumireProiect) + "Facultate=" + facultate + ", An_studii=" + an_studii ;
 	}
 	
 	
-	public int finantare() {
-		int s=20;
-		System.out.println("Studentul "+getNume()+" "+getPrenume()+" primeste"+s+" Euro/zi in proiect.");
-		return s;
+	public void afisareSumaFinantare() {
+		super.afisareSumaFinantare("Studentul", sumaFinantare);
 	}
 	
 }
